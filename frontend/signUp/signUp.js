@@ -1,3 +1,4 @@
+
 const signUpDetails = (event) =>{
     event.preventDefault();
     
@@ -18,9 +19,19 @@ const signUpDetails = (event) =>{
         password
     }
 
-    console.log(userDetails);
+    // console.log(userDetails);
 
+    postingUserDetails(userDetails);
 
+}
 
-
+const postingUserDetails = (userDetails) =>{
+    axios.post('http://127.0.0.1:3000/user/signup',userDetails)
+    .then(response=>{
+        console.log('user details successfully stored in db.')
+        console.log(response)
+    }).catch(err=>{
+        console.log('There\'s an error while sending your details to backend.')
+        console.log(err);
+    })
 }
