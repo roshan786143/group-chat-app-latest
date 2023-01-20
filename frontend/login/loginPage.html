@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+</head>
+<body>
+    <form onsubmit="loginData(event)" autocomplete="on">
+        <label for="email">Enter the email : </label>
+        <input type="email" name="email" id="email" required>
+        <label for="password">Enter the password : </label>
+        <input type="password" name="password" id="password" required>
+        <input type='submit' value="Log in">
+    </form>
+    <button onclick="goToSignUpPage(event)" style="padding: 1px;border-radius: 8px;color: rebeccapurple;background-color: whitesmoke;font-size: large;">Sign up</button>
+    <script src="./login.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>

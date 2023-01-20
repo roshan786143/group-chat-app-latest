@@ -35,3 +35,10 @@ const postingUserDetails = (userDetails) =>{
         console.log(err);
     })
 }
+
+
+const goToLoginPage = (event)=>{
+    event.preventDefault();
+
+    window.location.href = '../login/loginPage.html';
+}
