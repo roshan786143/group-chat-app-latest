@@ -1,0 +1,36 @@
+.chatBox{
+    background-color: aqua;
+    position: fixed;
+    bottom: 0px; 
+    height: 4rem;
+    width: 100%;
+    /* padding-left: rem; */
+}
+
+#message{
+    border-radius: 1rem; 
+    /* border-color: white; */
+    position: relative;
+    padding: 0.5rem 15rem 0.5rem 15rem;
+    top: 1rem;
+    margin-left: 16rem;
+    font-size: large;
+}
+
+#send{
+    margin-left: 1rem;
+    padding:0.6rem 2rem;
+    position: relative;
+    top: 1rem;
+    border-radius: 1rem;
+    font-size: large;
+}
+
+#displayMessageBox{
+    background-color: silver;
+    height: 2rem;
+    width: 40%;
+}
+#displayMessage{
+    font-size: large;
+}

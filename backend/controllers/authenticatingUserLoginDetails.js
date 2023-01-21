@@ -27,7 +27,7 @@ const authenticatingUserLoginDetails = (req,res)=>{
                     const token = jwt.sign({id : record.id,name : record.name},secretKey);
                     console.log(token);
                     // res.send('login successful.')
-                    res.json({password : 'validPassword',token})
+                    res.json({password : 'validPassword',token,name:record.name})
                 }else{
                     res.send('notAValidPassword')
                 }

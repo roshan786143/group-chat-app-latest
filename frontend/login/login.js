@@ -39,8 +39,10 @@ const postingLoginDetails = (loginCredentials) => {
         return
       }
       if(response.data.password === 'validPassword'){
-        displayUserLoginStatus.innerHTML = 'login successful';
-        form.appendChild(displayUserLoginStatus);
+        const name = response.data.name;
+        localStorage.setItem(name,response.data.token);
+        alert('login successful');
+          goToChatPage();
         return
       }
       if(response.data === 'noUser'){
@@ -56,7 +58,12 @@ const postingLoginDetails = (loginCredentials) => {
     });
 };
 
-const goToSignUpPage = (event) => {
-  event.preventDefault();
+const goToSignUpPage = () => {
+  // event.preventDefault();
   window.location.href = '../signUp/signUpPage.html';
 };
+
+const goToChatPage = () =>{
+  // event.preventDefault();
+  window.location.href = '../chat/chatPage.html';
+}
