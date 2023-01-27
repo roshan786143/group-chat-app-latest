@@ -1,8 +1,10 @@
+const signupBtn = document.getElementById('signupBtn');
+const loginBtn = document.getElementById('loginBtn');
 
-const signUpDetails = (event) =>{
+    signupBtn.addEventListener('click',(event)=>{
     event.preventDefault();
     
-    let name = document.getElementById('name');
+    let name = document.getElementById('firstName');
     let email = document.getElementById('email');
     let mobileNumber = document.getElementById('mobileNumber');
     let password = document.getElementById('password');
@@ -19,16 +21,17 @@ const signUpDetails = (event) =>{
         password
     }
 
-    // console.log(userDetails);
+    console.log(userDetails);
 
     postingUserDetails(userDetails);
 
-}
+});
 
 const postingUserDetails = (userDetails) =>{
     axios.post('http://127.0.0.1:3000/user/signup',userDetails)
     .then(response=>{
         console.log('user details successfully stored in db.')
+        alert(response.data);
         console.log(response)
     }).catch(err=>{
         console.log('There\'s an error while sending your details to backend.')
@@ -37,8 +40,7 @@ const postingUserDetails = (userDetails) =>{
 }
 
 
-const goToLoginPage = (event)=>{
-    event.preventDefault();
-
-    window.location.href = '../login/loginPage.html';
-}
+loginBtn.addEventListener('click',(event)=>{
+  event.preventDefault();
+  window.location.href = '../login/loginPage2.html';
+})

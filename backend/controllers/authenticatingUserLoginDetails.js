@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const userDetails = require('../models/userDetails');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 
 const authenticatingUserLoginDetails = (req,res)=>{
@@ -23,7 +24,7 @@ const authenticatingUserLoginDetails = (req,res)=>{
         bcrypt.compare(password,record.password)
             .then(isValidPassword=>{
                 if(isValidPassword){
-                    const secretKey = require('crypto').randomBytes(64).toString('hex');
+                    const secretKey = process.env.SECREY_kEY;
                     const token = jwt.sign({id : record.id,name : record.name},secretKey);
                     console.log(token);
                     // res.send('login successful.')
