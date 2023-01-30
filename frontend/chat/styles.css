@@ -7,7 +7,7 @@
     /* padding-left: rem; */
 }
 
-#message{
+#inputTextMessageField{
     border-radius: 1rem; 
     /* border-color: white; */
     position: relative;
@@ -28,9 +28,18 @@
 
 #displayMessageBox{
     background-color: silver;
-    height: 2rem;
-    width: 40%;
+    /* height: 2rem; */
+    width: 20%;
+    border-radius: 1rem;
 }
-#displayMessage{
+#message{
     font-size: large;
 }
+
+body{
+background-image: url('./28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+

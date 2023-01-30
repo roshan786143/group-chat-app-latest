@@ -24,7 +24,7 @@ const authenticatingUserLoginDetails = (req,res)=>{
         bcrypt.compare(password,record.password)
             .then(isValidPassword=>{
                 if(isValidPassword){
-                    const secretKey = process.env.SECREY_kEY;
+                    const secretKey = process.env.SECRET_kEY;
                     const token = jwt.sign({id : record.id,name : record.name},secretKey);
                     console.log(token);
                     // res.send('login successful.')

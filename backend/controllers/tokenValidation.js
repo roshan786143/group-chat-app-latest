@@ -7,9 +7,13 @@ const token = req.header('Authorization');
 
 // res.send('oh no');
 
-const userObj = jwt.verify(token,process.env.SECRET);
+const userObj = jwt.verify(token,process.env.SECRET_kEY);
     
 req.userId = userObj.id;
+
+// console.log(req.userId);
+
+// res.json(req.userId);
 
 next();
 

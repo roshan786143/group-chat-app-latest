@@ -1,6 +1,7 @@
 const sequelize = require('../util/db');
 const colors = require('colors');
 const { Sequelize, DataTypes } = require('sequelize');
+const userMessages = require('./userMessages');
 
 const userDetails = sequelize.define('userDetails',{
     id : {
@@ -27,6 +28,9 @@ const userDetails = sequelize.define('userDetails',{
         allowNull : false
       }
 })
+
+userDetails.hasMany(userMessages);
+userMessages.belongsTo(userDetails);
 
 sequelize.sync({force : false})
 .then(()=>console.log('hey your userDetails table has been created successfully'.green))

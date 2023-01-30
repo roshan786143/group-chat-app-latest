@@ -8,14 +8,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2><center>Chat App</center></h2>
+    <h2 style="color:hotpink;"><center>Chat App</center></h2>
     <div id="displayMessageBox">
-        <h4 id="displayMessage"></h4>
+        <ul id="messageList" style="list-style-type : none">
+        </ul>
     </div>
     <div class="chatBox">
-        <input type="text" name="message" id="message" required>
+        <input type="text" name="message" id="inputTextMessageField" required>
     <button onclick="sendMessage(event)" id="send">Send</button>
     </div>
     <script src="chat.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 </html>
