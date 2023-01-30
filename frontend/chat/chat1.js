@@ -20,6 +20,21 @@ const savingUsernameOnlocalstorage = ()=>{
             messages.appendChild(message);
         }
     }
+    const token = localStorage.getItem(user);
+    // console.log(user);
+    // console.log(token);
+    axios.get('http://127.0.0.1:3000/messages/gettingMessages',{headers:{'Authorization':token}})
+    .then(response=>{
+        console.log(response.data);
+        response.data.map(user=>{
+            const message = document.createElement('li');
+            message.innerHTML = `You : ${user.message}`;
+            messages.appendChild(message);
+        })
+    })
+    .catch(err=>{
+        console.log(err);
+    })
 }
 
 savingUsernameOnlocalstorage();
@@ -43,7 +58,7 @@ sendBtn.addEventListener('click',(event)=>{
     messages.appendChild(message);
 
     const token = localStorage.getItem(user);
-    
+
     console.log(token);
 
     axios.post(`http://127.0.0.1:3000/user/sendMessage`,{msg},{headers : {'Authorization' : token}})

@@ -1,4 +1,4 @@
-const messages = require('../models/userMessages');
+const messages = require('../models/messages');
 const colors = require('colors');
 const tokenValidation = require('./tokenValidation');
 
