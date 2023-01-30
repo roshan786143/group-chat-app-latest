@@ -69,5 +69,5 @@ loginBtn.addEventListener('click',(event)=>{
   
   const goToChatPage = () =>{
     // event.preventDefault();
-    window.location.href = '../chat/chatPage.html';
+    window.location.href = '../chat/chatPage1.html';
   }
