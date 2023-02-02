@@ -7,6 +7,7 @@ const storeincomingMessages = require('../controllers/storeincomingMessages');
 const resetPassword = require('../controllers/resetPassword');
 const updateUserPassword = require('../controllers/updatePassword');
 const tokenValidation = require('../controllers/tokenValidation');
+const sendingAllUserMessages = require('../controllers/sendingAllUserMessages');
 
 router.post('/user/signup',storingUserDetailsOnDB);
 
@@ -18,6 +19,6 @@ router.post('/user/forgotPassword',resetPassword);
 
 router.post('/password/updatePassword',updateUserPassword);
 
-// router.get('/messages/gettingMessages');
+router.get('/messages/gettingMessages/:id',tokenValidation,sendingAllUserMessages);
 
 module.exports = router;

@@ -44,6 +44,7 @@ loginBtn.addEventListener('click',(event)=>{
         }
         if(response.data.password === 'validPassword'){
           const name = response.data.name;
+          localStorage.clear();
           localStorage.setItem(name,response.data.token);
           alert('login successful');
             goToChatPage();
