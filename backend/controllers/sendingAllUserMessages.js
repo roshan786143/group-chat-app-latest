@@ -15,7 +15,7 @@ const sendingAllUserMessages = (req,res)=>{
     messages.findAll({
         where : {
             id: {
-            [Op.gte]: msgId      
+            [Op.gt]: msgId      
         }  
     }
 })

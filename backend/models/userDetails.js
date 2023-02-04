@@ -1,7 +1,7 @@
 const sequelize = require('../util/db');
 const colors = require('colors');
 const { Sequelize, DataTypes } = require('sequelize');
-const userMessages = require('./userMessages');
+const userMessages = require('./messages');
 
 const userDetails = sequelize.define('userDetails',{
     id : {

@@ -4,18 +4,25 @@ const messages = document.getElementById('messages');
 const form = document.getElementById('form');
 const input = document.getElementById('input');
 const sendBtn = document.getElementById('sendBtn'); 
+const messagesContainer = document.getElementById('messagesContainer');
+messagesContainer.style.position = 'relative';
+messagesContainer.style.top = '0px';
+// messagesContainer.style.display = 'inline';
 
-window.onload = ()=>{
+const gettingMyPersonalOneToOneMsgs = ()=>{
 
     if(localStorage.length === 1){
         const userTokeName = localStorage.key(0);
         const userToken = localStorage.getItem(userTokeName);
         // console.log(userToken);
         const msgId = 0;
+
         axios.get(`http://127.0.0.1:3000/messages/gettingMessages/${msgId}`,{headers : {'Authorization' : userToken}})
         .then(records=>{
+
             console.log(records.data);
             let msgs = records.data; 
+
             localStorage.setItem('msgs',JSON.stringify(msgs));
 
             console.log(msgs);
@@ -28,7 +35,8 @@ window.onload = ()=>{
                             messages.appendChild(message);
                         }else{
                             const message = document.createElement('li');
-                            message.innerHTML = `${msg.name} : ${msg.msg}`;              
+                            message.innerHTML = `${msg.name} : ${msg.msg}`;
+                            message.style.paddingLeft = '26rem'              
                             messages.appendChild(message);
                         }
                     })
@@ -36,9 +44,11 @@ window.onload = ()=>{
         .catch(err=>{
             console.log(err);
         })
+
     }else{
         const msgsArr = JSON.parse(localStorage.getItem('msgs'));
         console.log(msgsArr);
+
         let msgId = msgsArr[msgsArr.length-1].msgId;
         console.log(msgId);
 
@@ -68,7 +78,8 @@ window.onload = ()=>{
                     messages.appendChild(message);
                 }else{
                     const message = document.createElement('li');
-                    message.innerHTML = `${msg.name} : ${msg.msg}`;              
+                    message.innerHTML = `${msg.name} : ${msg.msg}`;  
+                    message.style.paddingLeft = '26rem'            
                     messages.appendChild(message);
                 }
             })
@@ -77,6 +88,14 @@ window.onload = ()=>{
             console.log(err);
         })
     }
+}   
+
+
+
+window.onload = ()=>{
+
+    gettingMyPersonalOneToOneMsgs();
+
 }   
 
 input.addEventListener('keypress',(event)=>{
@@ -88,9 +107,11 @@ input.addEventListener('keypress',(event)=>{
 
 sendBtn.addEventListener('click',(event)=>{
     event.preventDefault()
+
     let msg = input.value;
     // console.log(msg);
     input.value = '';
+
     const message = document.createElement('li');
     message.innerHTML = `you : ${msg}`;
     messages.appendChild(message);
